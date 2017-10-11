@@ -21,8 +21,8 @@ class Hashmap(object):
             self.table[self.hash_func(key)].append((key, value))
 
     def delete(self, key):
-        if self.search(key):
-            self.table[self.hash_func(key)].remove()
+        if self.get(key) != "Key not found.":
+            self.table[self.hash_func(key)].remove((key, self.get(key)))
 
     # Helper print functions
 
@@ -32,7 +32,7 @@ class Hashmap(object):
     def print_all_items(self):
         for item in self.table:
             for key, value in item:
-                print key, value
+                print (key, value)
 
 # Uncomment below to test by instantiating and populating
 
